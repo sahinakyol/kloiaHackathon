@@ -1,22 +1,25 @@
 package com.example.kloia.model;
 
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Getter
-@Setter
-@Entity(name = "PRODUCT")
+@Document
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String name;
+    private String id;
+
+    private String title;
+
+    private int price;
+
+    private int stock;
+
+    private String sellerId;
 
 }

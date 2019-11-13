@@ -1,23 +1,19 @@
 package com.example.kloia.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
 
-
-@Getter
-@Setter
-@Entity(name = "SELLER")
+@Document
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Seller {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String name;
+    private String id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
-    @JoinColumn(name = "PRODUCT_ID", nullable = false)
-    Product product;
+    private String name;
 
 }
